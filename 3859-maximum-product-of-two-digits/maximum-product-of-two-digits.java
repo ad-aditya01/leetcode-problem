@@ -1,25 +1,40 @@
+// class Solution {
+//     public int maxProduct(int n) {
+//         int temp=n;
+//         int count=0;
+//         while(temp!=0){
+//             int digit=temp%10;
+//             count++;
+//             temp/=10;
+//         }
+
+//         int[] arr=new int[count];
+//         int value=count;
+//         int m=n;
+//         while(m!=0){
+//             int last=m%10;
+//             arr[value-1]=last;
+//             value--;
+//             m/=10;
+//         }
+//         Arrays.sort(arr);
+//         return arr[count-1]*arr[count-2];
+        
+//     }
+// }
+
 class Solution {
     public int maxProduct(int n) {
-        // ArrayList<Integer> list=new ArrayList<>();
-        int temp=n;
-        int count=0;
-        while(temp!=0){
-            int digit=temp%10;
-            count++;
-            temp/=10;
+        ArrayList<Integer> list = new ArrayList<>();
+
+        while (n != 0) {
+            list.add(n % 10);
+            n /= 10;
         }
 
-        int[] arr=new int[count];
-        int value=count;
-        int m=n;
-        while(m!=0){
-            int last=m%10;
-            arr[value-1]=last;
-            value--;
-            m/=10;
-        }
-        Arrays.sort(arr);
-        return arr[count-1]*arr[count-2];
-        
+        Collections.sort(list);
+
+        int size = list.size();
+        return list.get(size - 1) * list.get(size - 2);
     }
 }
