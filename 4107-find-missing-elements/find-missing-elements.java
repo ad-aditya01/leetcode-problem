@@ -21,7 +21,7 @@ class Solution {
         ArrayList<Integer> list=new ArrayList();
         int a=nums[0];
         for(int i=0;i<n;i++){
-            while(a<nums[i]){
+            while(a!=nums[i]){
                 list.add(a);
                 a++;
             }
